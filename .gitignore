@@ -67,3 +67,7 @@ massif.out.*
 *.tlog
 *.log
 *.ior
+
+err.txt
+
+out.txt
