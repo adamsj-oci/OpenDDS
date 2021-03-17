@@ -3,22 +3,23 @@ cmake_minimum_required(VERSION 3.5)
 project(opendds)
 
 execute_process(
-  COMMAND ./configure --doc-group
+  COMMAND ./configure --prefix=${CMAKE_INSTALL_PREFIX} --doc-group
   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-  OUTPUT_FILE "out.txt"
-  ERROR_FILE "err.txt"
+  OUTPUT_FILE "configure.log"
+  ERROR_FILE "configure_err.log"
 )
 
-# ament_package()
+execute_process(
+  COMMAND make -j
+  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+  OUTPUT_FILE "make.log"
+  ERROR_FILE "make_err.log"
+)
 
-# install(
-#   DIRECTORY include/
-#   DESTINATION include
-# )
+execute_process(
+  COMMAND make install
+  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+  OUTPUT_FILE "make_install.log"
+  ERROR_FILE "make_install_err.log"
+)
 
-# install(
-#   TARGETS rmw_opendds_cpp
-#   ARCHIVE DESTINATION lib
-#   LIBRARY DESTINATION lib
-#   RUNTIME DESTINATION bin
-# )

@@ -4,6 +4,8 @@
   <name>opendds</name>
   <version>0.0.0</version>
   <description>opendds</description>
+  <maintainer email="user@email.com">user</maintainer>
+  <license>OpenDDS License</license>
 
   <buildtool_depend>wget</buildtool_depend>
 
